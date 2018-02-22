@@ -1,0 +1,41 @@
+<ion-header>
+
+  <ion-navbar color="danger">
+    <ion-title>ประวัติผู้ใช้งาน</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+  <div class="flex flex-col items-center">
+    <h1 color="danger" margin-bottom>{{name}}</h1>
+    <p>{{ email }}</p>
+  </div>
+
+  <ion-list margin-top>
+    <div class="flex flex-col items-center">
+      <h2 margin-bottom>
+        <u>ประวัติส่วนตัว</u>
+      </h2>
+    </div>
+    <ion-item class="flex flex-col items-center text-xl">
+      Gender : {{ gender }} Age : {{ age }}
+      <br>
+      <br> Height : {{ height }} Weight : {{ weight }}
+      <br>
+      <br> Telephone : {{ tel }}
+    </ion-item>
+    <div class="flex flex-col items-center">
+      <h2 margin-top margin-bottom>
+        <u>ประวัติการแพ้ยา</u>
+      </h2>
+    </div>
+    <ion-item class=" flex flex-col items-center text-xl">
+      {{ intolerance }}
+    </ion-item>
+  </ion-list>
+
+  <button ion-button full block (click)="navigateEdit()">Edit</button>
+  <button ion-button full clear (click)="logout()">LOGOUT</button>
+</ion-content>

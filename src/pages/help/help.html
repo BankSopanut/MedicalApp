@@ -1,0 +1,19 @@
+<ion-header>
+
+  <ion-navbar color="danger">
+    <ion-title>ขอความช่วยเหลือ</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+<ion-content padding>
+
+  <ion-list>
+    <button ion-item *ngFor="let contact of results" (click)="call(contact.tel)">
+      <ion-icon name="contact" item-start></ion-icon>
+      <h2>{{contact.data.name}}</h2>
+      <p>{{contact.data.tel}}</p>
+    </button>
+  </ion-list>
+
+</ion-content>

@@ -1,0 +1,49 @@
+<ion-header>
+
+  <ion-navbar color="danger">
+    <ion-title>แก้ไขประวัติผู้ใช้</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+  <ion-list>
+    <ion-item>
+      <ion-label floating>Name</ion-label>
+      <ion-input type="text" [(ngModel)]="name"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>Gender</ion-label>
+      <ion-input type="text" [(ngModel)]="gender"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>Age</ion-label>
+      <ion-input type="number" [(ngModel)]="age"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label floating>Tel.</ion-label>
+      <ion-input type="text" [(ngModel)]="tel"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>Height</ion-label>
+      <ion-input type="number" [(ngModel)]="height"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>Weight</ion-label>
+      <ion-input type="text" [(ngModel)]="weight"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label floating>Intolerance</ion-label>
+      <ion-input type="text" [(ngModel)]="intolerance"></ion-input>
+    </ion-item>
+  </ion-list>
+
+  <button ion-button full (click)="save()">Save</button>
+</ion-content>

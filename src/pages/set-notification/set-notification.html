@@ -1,0 +1,30 @@
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>SetNotification</ion-title>
+    <ion-buttons end>
+      <button ion-button (click)="turnOff()">
+        Turn Off
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+  <ion-list>
+    <ion-item>
+      <ion-label>Start Date</ion-label>
+      <ion-datetime displayFormat="MMM DD YYYY" [(ngModel)]="date"></ion-datetime>
+    </ion-item>
+
+
+    <ion-item>
+      <ion-label>Start Time</ion-label>
+      <ion-datetime displayFormat="h:mm A" pickerFormat="h mm A" [(ngModel)]="time"></ion-datetime>
+    </ion-item>
+  </ion-list>
+  <button ion-button full (click)="set()">Set</button>
+
+</ion-content>

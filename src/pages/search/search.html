@@ -1,0 +1,17 @@
+<ion-header>
+
+  <ion-navbar color="danger">
+    <ion-title>ค้นหายา</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+<ion-content>
+  <ion-searchbar (ionInput)="getItems($event)"></ion-searchbar>
+  <ion-list>
+    <button ion-item *ngFor="let medicine of results">
+      {{medicine.data.name}}
+    </button>
+  </ion-list>
+
+</ion-content>
