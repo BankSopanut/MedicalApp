@@ -68,7 +68,10 @@ export class SearchPage extends BasePage {
     }
   }
 
-  navigateMedicine() {
-    this.navCtrl.push(MedicinePage);
+  medData(medicineID) {
+    this.navCtrl.push(MedicinePage, {
+      id: medicineID
+    });
   }
+
 }

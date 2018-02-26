@@ -1,0 +1,22 @@
+<ion-header>
+
+  <ion-navbar color="danger">
+    <ion-title>{{name}}</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+<ion-content padding>
+  <h2>ถ้าลืมใช้ยาควรทำอย่างไร</h2>
+  <p>{{forget}}</p>
+  <h2 margin-top>การเก็บรักษา</h2>
+  <p>{{keeping}}</p>
+  <h2 margin-top>ตัวยาสำคัญ</h2>
+  <p>{{ingredients}}</p>
+  <h2 margin-top>กลุ่มยา</h2>
+  <p margin-bottom>{{type}}</p>
+
+  <button ion-button color="danger" icon-left round full (click)="back()">
+    <ion-icon name="arrow-dropleft-circle"></ion-icon>ข้อมูลเพิ่มเติม
+  </button>
+</ion-content>

@@ -3,7 +3,7 @@ import { LoadingController } from 'ionic-angular/components/loading/loading-cont
 import { Loading } from 'ionic-angular/components/loading/loading';
 import { ToastController } from 'ionic-angular/components/toast/toast-controller';
 import { Component } from '@angular/core';
-import { NavController, NavParams } from 'ionic-angular';
+import { NavController, NavParams, ActionSheetController } from 'ionic-angular';
 import BasePage from '../base';
 import { AngularFireAuth } from 'angularfire2/auth';
 import { AngularFirestore } from 'angularfire2/firestore';
@@ -28,7 +28,8 @@ export class HelpPage extends BasePage {
     public firebaseFirestore: AngularFirestore,
     public toastCtrl: ToastController,
     public loadingCtrl: LoadingController,
-    public callNumber: CallNumber
+    public callNumber: CallNumber,
+    public actionSheetCtrl: ActionSheetController
   ) {
     super(toastCtrl, loadingCtrl);
   }
@@ -71,5 +72,65 @@ export class HelpPage extends BasePage {
     this.callNumber.callNumber(Contacttel, true)
       .then(() => console.log('Launched dialer!'))
       .catch(() => console.log('Error launching dialer'));
+  }
+
+  navigateAddcontact() {
+    this.navCtrl.push(AddContactPage);
+  }
+
+  edit(contactID) {
+    this.navCtrl.push(EditContactPage, {
+      id: contactID
+    });
+  }
+
+  delete(contactID) {
+    this.showLoading("Deleting...")
+    this.firebaseFirestore
+      .collection('users')
+      .doc(this.uid)
+      .collection('movies')
+      .doc(contactID)
+      .delete()
+      .then(() => {
+        this.hideLoading();
+        this.showToast("Deleted sucessfully");
+      })
+      .catch(error => {
+        this.hideLoading();
+        this.showToast(error);
+      });
+  }
+
+  presentActionSheet(contactID) {
+    let actionSheet = this.actionSheetCtrl.create({
+      title: 'ตัวเลือก',
+      buttons: [
+        {
+          text: 'โทร',
+          role: 'destructive',
+          handler: () => {
+            console.log('destructive clicked');
+          }
+        },{
+          text: 'แก้ไข',
+          handler: () => {
+            console.log('Archive clicked');
+          }
+        },{
+          text: 'ลบผู้ติดต่อ',
+          handler: () => {
+            console.log('Archive clicked');
+          }
+        },{
+          text: 'ยกเลิก',
+          role: 'cancel',
+          handler: () => {
+            console.log('Cancel clicked');
+          }
+        }
+      ]
+    });
+    actionSheet.present();
   }
 }

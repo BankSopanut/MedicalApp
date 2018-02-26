@@ -9,7 +9,7 @@
 <ion-content>
   <ion-searchbar (ionInput)="getItems($event)"></ion-searchbar>
   <ion-list>
-    <button ion-item *ngFor="let medicine of results">
+    <button ion-item *ngFor="let medicine of results" (click)="medData(medicine.id)">
       {{medicine.data.name}}
     </button>
   </ion-list>

@@ -1,12 +1,7 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
-
-/**
- * Generated class for the AddContactPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
+import { AngularFireAuth } from 'angularfire2/auth';
+import { AngularFirestore } from 'angularfire2/firestore';
 
 @Component({
   selector: 'page-add-contact',
@@ -14,11 +9,29 @@ import { NavController, NavParams } from 'ionic-angular';
 })
 export class AddContactPage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  name: string;
+  tel: string;
+
+  constructor(
+    public navCtrl: NavController, 
+    public navParams: NavParams,
+    public firebaseAuth: AngularFireAuth,
+    public firebaseFirestore: AngularFirestore
+  ) {
   }
 
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad AddContactPage');
+  create() {
+    this.firebaseFirestore
+    .collection('users')
+    .doc(this.firebaseAuth.auth.currentUser.uid)
+    .collection('Contacts')
+    .add({
+      name : this.name,
+      length : this.tel,
+    })
+    .then(() => {
+      this.navCtrl.pop();
+    })
   }
 
 }

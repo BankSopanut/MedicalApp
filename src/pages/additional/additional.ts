@@ -1,4 +1,3 @@
-import { AdditionalPage } from './../additional/additional';
 import { Component } from '@angular/core';
 import { NavController, NavParams, ToastController, LoadingController } from 'ionic-angular';
 import { AngularFireAuth } from 'angularfire2/auth';
@@ -6,18 +5,18 @@ import { AngularFirestore } from 'angularfire2/firestore';
 import BasePage from '../base';
 
 @Component({
-  selector: 'page-medicine',
-  templateUrl: 'medicine.html',
+  selector: 'page-additional',
+  templateUrl: 'additional.html',
 })
-export class MedicinePage extends BasePage {
+export class AdditionalPage extends BasePage {
 
   barcode: string = '';
   name: string = '';
-  cure: string = '';
-  how: string = '';;
-  warning: string = '';
-  dose: string = '';
+  ingredients: string = '';
+  type: string = '';
   form: string = '';
+  keeping: string = '';
+  forget: string = '';
 
   id: string;
 
@@ -42,13 +41,12 @@ export class MedicinePage extends BasePage {
       .subscribe((data: any) => {
         this.barcode = data.barcode,
           this.name = data.name,
-          this.cure = data.cure,
-          this.how = data.how,
-          this.warning = data.warning,
-          this.form = data.form,
-          this.dose = data.dose,
+          this.ingredients = data.ingredients,
+          this.type = data.type,
+          this.keeping = data.keeping,
+          this.forget = data.forget,
 
-        this.hideLoading();
+          this.hideLoading();
       },
         (error) => {
           this.hideLoading();
@@ -56,9 +54,7 @@ export class MedicinePage extends BasePage {
         })
   }
 
-  additional(medicineID) {
-    this.navCtrl.push(AdditionalPage, {
-      id: medicineID
-    });
+  back() {
+    this.navCtrl.pop();
   }
 }

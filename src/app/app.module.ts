@@ -1,3 +1,4 @@
+import { AdditionalPage } from './../pages/additional/additional';
 import { MedicinePage } from './../pages/medicine/medicine';
 import { SearchPage } from './../pages/search/search';
 import { EditProfilePage } from './../pages/edit-profile/edit-profile';
@@ -47,7 +48,8 @@ var config = {
     EditContactPage,
     AddContactPage,
     SearchPage,
-    MedicinePage
+    MedicinePage,
+    AdditionalPage
   ],
   imports: [
     BrowserModule,
@@ -69,7 +71,8 @@ var config = {
     EditContactPage,
     AddContactPage,
     SearchPage,
-    MedicinePage
+    MedicinePage,
+    AdditionalPage
   ],
   providers: [
     StatusBar,

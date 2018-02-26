@@ -9,11 +9,13 @@
 <ion-content padding>
 
   <ion-list>
-    <button ion-item *ngFor="let contact of results" (click)="call(contact.tel)">
+    <button ion-item *ngFor="let contact of results" (click)="presentActionSheet(contact.id)">
       <ion-icon name="contact" item-start></ion-icon>
       <h2>{{contact.data.name}}</h2>
       <p>{{contact.data.tel}}</p>
     </button>
   </ion-list>
+
+  <button ion-button block color="danger" (click)="navigateAddcontact()">เพิ่มผู้ติดต่อ</button>
 
 </ion-content>
