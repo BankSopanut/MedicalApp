@@ -1,22 +1,28 @@
 <ion-header>
 
   <ion-navbar color="danger">
-    <ion-title>{{name}}</ion-title>
+    <ion-title>ข้อมูลยา</ion-title>
+    <ion-buttons end>
+      <button ion-button icon-only color="light">
+        <ion-icon name="add-circle"></ion-icon>
+      </button>
+    </ion-buttons>
   </ion-navbar>
 
 </ion-header>
 
 <ion-content padding>
+  <div class="flex flex-col items-center">
+    <a><b>{{name}}</b></a>
+  </div>
   <h2>สรรพคุณ</h2>
   <p>{{cure}}</p>
   <h2 margin-top>วิธีใช้</h2>
   <p>{{how}}</p>
-  <h2 margin-top>ขนาดของยา</h2>
-  <p>{{dose}}</p>
   <h2 margin-top>รูปแบบยา</h2>
   <p>{{form}}</p>
-  <h2 margin-top>ข้อควรระวัง</h2>
-  <p margin-bottom>{{warning}}</p>
+  <h2 margin-top>ถ้าลืมใช้ยาควรทำอย่างไร</h2>
+  <p margin-bottom>{{forget}}</p>
 
   <button ion-button color="danger" icon-right round full (click)="additional(id)">ข้อมูลเพิ่มเติม
     <ion-icon name="arrow-dropright-circle"></ion-icon>

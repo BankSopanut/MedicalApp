@@ -1,8 +1,8 @@
+import { NotificationPage } from './../pages/notification/notification';
 import { AdditionalPage } from './../pages/additional/additional';
 import { MedicinePage } from './../pages/medicine/medicine';
 import { SearchPage } from './../pages/search/search';
 import { EditProfilePage } from './../pages/edit-profile/edit-profile';
-import { SetNotificationPage } from './../pages/set-notification/set-notification';
 import { RegisterPage } from './../pages/register/register';
 import { LoginPage } from './../pages/login/login';
 import { ProfilePage } from './../pages/profile/profile';
@@ -42,14 +42,14 @@ var config = {
     ProfilePage,
     LoginPage,
     RegisterPage,
-    SetNotificationPage,
     EditProfilePage,
     HelpPage,
     EditContactPage,
     AddContactPage,
     SearchPage,
     MedicinePage,
-    AdditionalPage
+    AdditionalPage,
+    NotificationPage
   ],
   imports: [
     BrowserModule,
@@ -65,14 +65,14 @@ var config = {
     ProfilePage,
     LoginPage,
     RegisterPage,
-    SetNotificationPage,
     EditProfilePage,
     HelpPage,
     EditContactPage,
     AddContactPage,
     SearchPage,
     MedicinePage,
-    AdditionalPage
+    AdditionalPage,
+    NotificationPage
   ],
   providers: [
     StatusBar,

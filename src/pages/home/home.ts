@@ -1,3 +1,4 @@
+import { NotificationPage } from './../notification/notification';
 import { SearchPage } from './../search/search';
 import { HelpPage } from './../help/help';
 import { ProfilePage } from './../profile/profile';
@@ -11,7 +12,6 @@ import { AngularFireAuth } from 'angularfire2/auth';
 import { AngularFirestore } from 'angularfire2/firestore';
 import { ToastController } from 'ionic-angular/components/toast/toast-controller';
 import { BarcodeScanner } from '@ionic-native/barcode-scanner';
-import { SetNotificationPage } from '../set-notification/set-notification';
 
 @Component({
   selector: 'page-home',
@@ -22,7 +22,7 @@ export class HomePage extends BasePage {
   items = [];
   results = [];
 
-  uid: string = '';
+  id: string = '';
 
   constructor(
     public navCtrl: NavController,
@@ -49,29 +49,18 @@ export class HomePage extends BasePage {
   }
 
   navigateSetNotification() {
-    this.navCtrl.push(SetNotificationPage);
+    this.navCtrl.push(NotificationPage);
   }
 
   navigateHelp() {
     this.navCtrl.push(HelpPage);
   }
 
-  getItemsFromCode(code) {
-
-    if (code == '') {
-      this.results = this.items;
-    }
-
-    if (code && code.trim() != '') {
-      this.results = this.items.filter((item) => {
-        return (item.data.barcode.toLowerCase().indexOf(code.toLowerCase()) > -1);
-      })
-    }
-  }
-
-  scanBarcode() {
+  scanBarcode(barcode) {
     this.barcodeScanner.scan().then((barcodeData) => {
-      this.getItemsFromCode(barcodeData.text);
+      this.navCtrl.push(SearchPage, {
+        code: barcode
+      });
     }, (err) => {
       // An error occurred
     });

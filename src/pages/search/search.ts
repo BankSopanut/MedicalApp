@@ -13,6 +13,11 @@ import BasePage from '../base';
 })
 export class SearchPage extends BasePage {
 
+  code: string;
+
+  items = [];
+  results = [];
+
   constructor(
     public navCtrl: NavController,
     public navParams: NavParams,
@@ -22,11 +27,8 @@ export class SearchPage extends BasePage {
     public loadingCtrl: LoadingController
   ) {
     super(toastCtrl, loadingCtrl)
+    this.code = this.navParams.get('code');
   }
-
-  items = [];
-  results = [];
-
 
   ionViewDidLoad() {
 
@@ -65,6 +67,19 @@ export class SearchPage extends BasePage {
       this.results = this.items.filter((item) => {
         return (item.data.name.toLowerCase().indexOf(val.toLowerCase()) > -1);
       });
+    }
+  }
+
+  getItemsFromCode(code) {
+
+    if (code == '') {
+      this.results = this.items;
+    }
+
+    if (code && code.trim() != '') {
+      this.results = this.items.filter((item) => {
+        return (item.data.barcode.toLowerCase().indexOf(code.toLowerCase()) > -1);
+      })
     }
   }
 

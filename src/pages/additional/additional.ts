@@ -16,7 +16,7 @@ export class AdditionalPage extends BasePage {
   type: string = '';
   form: string = '';
   keeping: string = '';
-  forget: string = '';
+  warning: string = '';
 
   id: string;
 
@@ -33,7 +33,7 @@ export class AdditionalPage extends BasePage {
 
   ionViewDidLoad(medicineID) {
 
-    this.showLoading("Fetching Data...")
+    this.showLoading("กำลังดึงข้อมูล...")
     this.firebaseFirestore
       .collection('Medicines')
       .doc(this.id)
@@ -44,7 +44,7 @@ export class AdditionalPage extends BasePage {
           this.ingredients = data.ingredients,
           this.type = data.type,
           this.keeping = data.keeping,
-          this.forget = data.forget,
+          this.warning = data.warning,
 
           this.hideLoading();
       },

@@ -2,13 +2,18 @@
 
   <ion-navbar color="danger">
     <ion-title>{{name}}</ion-title>
+    <ion-buttons end>
+      <button ion-button icon-only color="light">
+        <ion-icon name="add-circle"></ion-icon>
+      </button>
+    </ion-buttons>
   </ion-navbar>
 
 </ion-header>
 
 <ion-content padding>
-  <h2>ถ้าลืมใช้ยาควรทำอย่างไร</h2>
-  <p>{{forget}}</p>
+  <h2>ข้อควรระวัง</h2>
+  <p>{{warning}}</p>
   <h2 margin-top>การเก็บรักษา</h2>
   <p>{{keeping}}</p>
   <h2 margin-top>ตัวยาสำคัญ</h2>

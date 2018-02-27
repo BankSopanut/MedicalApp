@@ -15,8 +15,7 @@ export class MedicinePage extends BasePage {
   name: string = '';
   cure: string = '';
   how: string = '';;
-  warning: string = '';
-  dose: string = '';
+  forget: string = '';
   form: string = '';
 
   id: string;
@@ -34,7 +33,7 @@ export class MedicinePage extends BasePage {
 
   ionViewDidLoad(medicineID) {
 
-    this.showLoading("Fetching Data...")
+    this.showLoading("กำลังดึงข้อมูล...")
     this.firebaseFirestore
       .collection('Medicines')
       .doc(this.id)
@@ -44,9 +43,8 @@ export class MedicinePage extends BasePage {
           this.name = data.name,
           this.cure = data.cure,
           this.how = data.how,
-          this.warning = data.warning,
+          this.forget = data.forget,
           this.form = data.form,
-          this.dose = data.dose,
 
         this.hideLoading();
       },
