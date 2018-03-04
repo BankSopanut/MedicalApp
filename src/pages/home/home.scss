@@ -1,17 +1,12 @@
 page-home {
 
-    .col{
-      text-align:center !important;
-    }
+.home-container{
+  display: -webkit-flex;
+  -webkit-flex-direction: column;
+}
 
-    .row{
-      padding-bottom:25% !important;
-    }
-
-    .my-icon:before,
-    .my-icon{
-      font-size:60px !important;
-      display:block !important;
-    }
+.home-container > .row{
+  -webkit-flex: 1;
+}
 
 }

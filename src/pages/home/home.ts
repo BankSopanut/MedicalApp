@@ -12,6 +12,7 @@ import { AngularFireAuth } from 'angularfire2/auth';
 import { AngularFirestore } from 'angularfire2/firestore';
 import { ToastController } from 'ionic-angular/components/toast/toast-controller';
 import { BarcodeScanner } from '@ionic-native/barcode-scanner';
+import { LogPage } from '../log/log';
 
 @Component({
   selector: 'page-home',
@@ -50,6 +51,10 @@ export class HomePage extends BasePage {
 
   navigateSetNotification() {
     this.navCtrl.push(NotificationPage);
+  }
+
+  navigateLog() {
+    this.navCtrl.push(LogPage);
   }
 
   navigateHelp() {

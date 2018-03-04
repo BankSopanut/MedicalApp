@@ -57,10 +57,10 @@ export class HelpPage extends BasePage {
 
         this.hideLoading();
       },
-        (error) => {
-          this.hideLoading();
-          this.showToast(error);
-        })
+      (error) => {
+        this.hideLoading();
+        this.showToast(error);
+      })
   }
   call(Contacttel) {
     this.firebaseFirestore
@@ -78,30 +78,6 @@ export class HelpPage extends BasePage {
     this.navCtrl.push(AddContactPage);
   }
 
-  edit(contactID) {
-    this.navCtrl.push(EditContactPage, {
-      id: contactID
-    });
-  }
-
-  delete(contactID) {
-    this.showLoading("Deleting...")
-    this.firebaseFirestore
-      .collection('users')
-      .doc(this.uid)
-      .collection('movies')
-      .doc(contactID)
-      .delete()
-      .then(() => {
-        this.hideLoading();
-        this.showToast("Deleted sucessfully");
-      })
-      .catch(error => {
-        this.hideLoading();
-        this.showToast(error);
-      });
-  }
-
   presentActionSheet(contactID) {
     let actionSheet = this.actionSheetCtrl.create({
       title: 'ตัวเลือก',
@@ -112,17 +88,33 @@ export class HelpPage extends BasePage {
           handler: () => {
             console.log('destructive clicked');
           }
-        },{
+        }, {
           text: 'แก้ไข',
           handler: () => {
-            console.log('Archive clicked');
+            this.navCtrl.push(EditContactPage, {
+              id: contactID
+            });
           }
-        },{
+        }, {
           text: 'ลบผู้ติดต่อ',
           handler: () => {
-            console.log('Archive clicked');
+            this.showLoading("กำลังลบ...")
+            this.firebaseFirestore
+              .collection('users')
+              .doc(this.uid)
+              .collection('Contacts')
+              .doc(contactID)
+              .delete()
+              .then(() => {
+                this.hideLoading();
+                this.showToast("ลบผู้ติดต่อแล้ว");
+              })
+              .catch(error => {
+                this.hideLoading();
+                this.showToast(error);
+              });
           }
-        },{
+        }, {
           text: 'ยกเลิก',
           role: 'cancel',
           handler: () => {

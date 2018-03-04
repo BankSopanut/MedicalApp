@@ -1,3 +1,4 @@
+import { LogPage } from './../pages/log/log';
 import { NotificationPage } from './../pages/notification/notification';
 import { AdditionalPage } from './../pages/additional/additional';
 import { MedicinePage } from './../pages/medicine/medicine';
@@ -49,7 +50,8 @@ var config = {
     SearchPage,
     MedicinePage,
     AdditionalPage,
-    NotificationPage
+    NotificationPage,
+    LogPage
   ],
   imports: [
     BrowserModule,
@@ -72,7 +74,8 @@ var config = {
     SearchPage,
     MedicinePage,
     AdditionalPage,
-    NotificationPage
+    NotificationPage,
+    LogPage
   ],
   providers: [
     StatusBar,
