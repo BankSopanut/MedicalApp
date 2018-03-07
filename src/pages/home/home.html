@@ -4,38 +4,66 @@
   </ion-navbar>
 </ion-header>
 
-<ion-content padding>
+<ion-content text-center class="icons-basic-page">
 
-  <div class="row">
-    <div class="col">
+  <ion-row>
+    <ion-col>
       <button class="button" (click)="navigateSearch()">
-        <i class="icon icon ion-medkit"></i>ค้นหาข้อมูลยา</button>
-    </div>
-    <div class="col">
+        <ion-icon name="medkit" color="danger"></ion-icon>
+        <br>
+        <br>ค้นหาข้อมูลยา</button>
+    </ion-col>
+    <ion-col>
       <button class="button" (click)="scanBarcode()">
-        <i class="icon icon ion-barcode"></i>แสกนบาร์โค้ด</button>
-    </div>
-  </div>
+        <ion-icon name="barcode" color="danger"></ion-icon>
+        <br>
+        <br>แสกนบาร์โค้ด</button>
+    </ion-col>
+  </ion-row>
 
-  <div class="row">
-    <div class="col">
+  <ion-row>
+    <ion-col>
       <button class="button" (click)="navigateProfile()">
-        <i class="icon icon ion-person"></i>ประวัติผู้ใช้</button>
-    </div>
-    <div class="col">
-      <button class="button" (click)="navigateSetNotification()">
-        <i class="icon icon ion-alarm "></i>เตือนการกินยา</button>
-    </div>
-  </div>
+        <ion-icon name="person" color="danger"></ion-icon>
+        <br>
+        <br>ประวัติผู้ใช้</button>
+    </ion-col>
+    <ion-col>
+      <button class="button" (click)="addMedicine()">
+        <ion-icon name="cloud-upload" color="danger"></ion-icon>
+        <br>
+        <br>เพิ่มข้อมูลยา</button>
+    </ion-col>
+  </ion-row>
 
-  <div class="row">
-    <div class="col">
+  <ion-row>
+    <ion-col>
+      <button class="button" (click)="navigateSetNotification()">
+        <ion-icon name="alarm" color="danger"></ion-icon>
+        <br>
+        <br>เตือนการกินยา</button>
+    </ion-col>
+    <ion-col>
       <button class="button" (click)="navigateHelp()">
-        <i class="icon icon ion-people"></i>ขอความช่วยเหลือ</button>
-    </div>
-    <div class="col">
-        <button class="button" (click)="navigateLog()">
-          <i class="icon icon ion-"></i>สรุปผลการใช้ยา</button>
-      </div>
-  </div>
+        <ion-icon name="call" color="danger"></ion-icon>
+        <br>
+        <br>ขอความช่วยเหลือ</button>
+    </ion-col>
+
+  </ion-row>
+
+  <ion-row>
+    <ion-col>
+      <button class="button">
+        <ion-icon name="medical" color="danger"></ion-icon>
+        <br>
+        <br>ร้านขายยาใกล้เคียง</button>
+    </ion-col>
+    <ion-col>
+      <button class="button" (click)="navigateLog()">
+        <ion-icon name="analytics" color="danger"></ion-icon>
+        <br>
+        <br>สรุปผลการใช้ยา</button>
+    </ion-col>
+  </ion-row>
 </ion-content>

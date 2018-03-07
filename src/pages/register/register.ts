@@ -13,13 +13,15 @@ import { AngularFirestore } from 'angularfire2/firestore';
 })
 export class RegisterPage extends BasePage {
 
-  email: string = '';
-  password: string = '';
-  displayName: string = '';
+  name: string;
+  email: string;
+  password: string;
+  gender: string;
   age: number;
-  tel: string = '';
-
-  loader: Loading;
+  tel: string;
+  height: number;
+  weight: number;
+  intolerance: string;
 
   constructor(
     public navCtrl: NavController,
@@ -33,24 +35,33 @@ export class RegisterPage extends BasePage {
   }
 
   register() {
-    this.showLoading("Registering...")
+    this.showLoading("กำลังลงทะเบียน...")
     this.firebaseAuth
       .auth
       .createUserWithEmailAndPassword(this.email, this.password)
       .then(user => {
         user.updateProfile({
-          displayName: this.displayName,
-          photoURL: 'http://1077thejewel.com/wp-content/uploads/robert-downey-jr-1.jpg'
+          name: this.name,
+          tel: this.tel,
+          age: this.age,
+          gender: this.gender,
+          height: this.height,
+          weight: this.weight,
+          intolerance: this.intolerance
         })
 
         this.firebaseFirestore
           .collection('users')
           .doc(user.uid)
           .set({
-            name: this.displayName,
+            name: this.name,
             email: this.email,
             tel: this.tel,
-            age: this.age
+            age: this.age,
+            gender: this.gender,
+            height: this.height,
+            weight: this.weight,
+            intolerance: this.intolerance
           })
 
         this.hideLoading();

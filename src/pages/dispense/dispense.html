@@ -1,0 +1,28 @@
+<ion-header>
+
+  <ion-navbar color="danger">
+    <ion-title>จ่ายยา</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+<ion-content padding>
+  <ion-list>
+    <ion-item>
+      <ion-label floating>จ่ายยา</ion-label>
+      <ion-input type="text" [(ngModel)]="name"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label floating>ปริมาณ</ion-label>
+      <ion-input type="text" [(ngModel)]="dose"></ion-input>
+    </ion-item>
+
+    <ion-item>
+        <ion-label>วันที่</ion-label>
+          <ion-datetime displayFormat="MMM DD YYYY" [(ngModel)]="date"></ion-datetime>
+      </ion-item>
+  </ion-list>
+
+  <button ion-button block color="danger" (click)="dispense()">จ่ายยา</button>
+</ion-content>

@@ -7,6 +7,12 @@
 </ion-header>
 
 
-<ion-content padding>
+<ion-content>
+  <ion-list>
+    <ion-item *ngFor="let log of results">
+      <h2 color="danger">{{log.data.name}}</h2>
+      <p>จ่าย : {{log.data.date}} ปริมาณ : {{log.data.dose}}</p>
+    </ion-item>
+  </ion-list>
 
 </ion-content>

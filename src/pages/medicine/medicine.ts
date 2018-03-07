@@ -1,3 +1,4 @@
+import { DispensePage } from './../dispense/dispense';
 import { AdditionalPage } from './../additional/additional';
 import { Component } from '@angular/core';
 import { NavController, NavParams, ToastController, LoadingController } from 'ionic-angular';
@@ -52,6 +53,12 @@ export class MedicinePage extends BasePage {
           this.hideLoading();
           this.showToast(error);
         })
+  }
+
+  dispense(medicineID) {
+    this.navCtrl.push(DispensePage, {
+      id: medicineID
+    });
   }
 
   additional(medicineID) {

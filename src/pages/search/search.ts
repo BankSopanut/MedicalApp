@@ -1,3 +1,4 @@
+import { AddMedicinePage } from './../add-medicine/add-medicine';
 import { MedicinePage } from './../medicine/medicine';
 import { LoadingController } from 'ionic-angular/components/loading/loading-controller';
 import { AngularFirestore } from 'angularfire2/firestore';
@@ -13,7 +14,7 @@ import BasePage from '../base';
 })
 export class SearchPage extends BasePage {
 
-  code: string;
+  barcode: string;
 
   items = [];
   results = [];
@@ -27,7 +28,7 @@ export class SearchPage extends BasePage {
     public loadingCtrl: LoadingController
   ) {
     super(toastCtrl, loadingCtrl)
-    this.code = this.navParams.get('code');
+    this.barcode = this.navParams.get('barcode');
   }
 
   ionViewDidLoad() {
@@ -70,15 +71,15 @@ export class SearchPage extends BasePage {
     }
   }
 
-  getItemsFromCode(code) {
+  getItemsFromCode(barcode) {
 
-    if (code == '') {
+    if (barcode == '') {
       this.results = this.items;
     }
 
-    if (code && code.trim() != '') {
+    if (barcode && barcode.trim() != '') {
       this.results = this.items.filter((item) => {
-        return (item.data.barcode.toLowerCase().indexOf(code.toLowerCase()) > -1);
+        return (item.data.barcode.toLowerCase().indexOf(barcode.toLowerCase()) > -1);
       })
     }
   }

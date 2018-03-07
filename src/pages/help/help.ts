@@ -37,7 +37,7 @@ export class HelpPage extends BasePage {
   ionViewDidLoad() {
     this.uid = this.firebaseAuth.auth.currentUser.uid;
 
-    this.showLoading("Fetching Data...")
+    this.showLoading("กำลังดึงข้อมูล...")
     this.firebaseFirestore
       .collection('users')
       .doc(this.uid)
@@ -78,7 +78,7 @@ export class HelpPage extends BasePage {
     this.navCtrl.push(AddContactPage);
   }
 
-  presentActionSheet(contactID) {
+  presentActionSheet(contactID, contactTel) {
     let actionSheet = this.actionSheetCtrl.create({
       title: 'ตัวเลือก',
       buttons: [
@@ -86,7 +86,15 @@ export class HelpPage extends BasePage {
           text: 'โทร',
           role: 'destructive',
           handler: () => {
-            console.log('destructive clicked');
+            this.firebaseFirestore
+            .collection('users')
+            .doc(this.uid)
+            .collection('Contacts')
+            .doc(contactID)
+      
+          this.callNumber.callNumber(contactTel, true)
+            .then(() => console.log('Launched dialer!'))
+            .catch(() => console.log('Error launching dialer'));
           }
         }, {
           text: 'แก้ไข',

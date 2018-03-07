@@ -1,40 +1,59 @@
 <ion-header>
 
-  <ion-navbar>
-    <ion-title>register</ion-title>
+  <ion-navbar color="danger">
+    <ion-title>ลงทะเบียน</ion-title>
   </ion-navbar>
 
 </ion-header>
 
-
-<ion-content padding>
+<ion-content>
   <ion-list>
     <ion-item>
-      <ion-label floating>Name</ion-label>
-      <ion-input type="text" [(ngModel)]="displayName"></ion-input>
+      <ion-label>อีเมลล์</ion-label>
+      <ion-input type="text" [(ngModel)]="email"></ion-input>
     </ion-item>
 
     <ion-item>
-      <ion-label floating>email</ion-label>
-      <ion-input type="email" [(ngModel)]="email"></ion-input>
+      <ion-label>รหัสผ่าน</ion-label>
+      <ion-input type="text" [(ngModel)]="password"></ion-input>
     </ion-item>
 
     <ion-item>
-      <ion-label floating>password</ion-label>
-      <ion-input type="password" [(ngModel)]="password"></ion-input>
+      <ion-label>ชื่อผู้ใช้</ion-label>
+      <ion-input type="text" [(ngModel)]="name"></ion-input>
     </ion-item>
 
     <ion-item>
-      <ion-label floating>Age</ion-label>
-      <ion-input type="text" [(ngModel)]="age"></ion-input>
+      <ion-label>เพศ</ion-label>
+      <ion-input type="text" [(ngModel)]="gender"></ion-input>
     </ion-item>
 
     <ion-item>
-      <ion-label floating>Tel</ion-label>
+      <ion-label>อายุ</ion-label>
+      <ion-input type="number" [(ngModel)]="age"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>เบอร์โทรศัพท์</ion-label>
       <ion-input type="text" [(ngModel)]="tel"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>ส่วนสูง</ion-label>
+      <ion-input type="number" [(ngModel)]="height"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>น้ำหนัก</ion-label>
+      <ion-input type="number" [(ngModel)]="weight"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>การแพ้ยา</ion-label>
+      <ion-input type="text" [(ngModel)]="intolerance"></ion-input>
     </ion-item>
   </ion-list>
 
-  <button ion-button full (click)="register()">Register</button>
+  <button ion-button block color="danger" (click)="register()">ลงทะเบียน</button>
 
 </ion-content>

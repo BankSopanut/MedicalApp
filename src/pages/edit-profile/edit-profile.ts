@@ -53,7 +53,7 @@ export class EditProfilePage extends BasePage {
   }
 
   save() {
-    this.showLoading("Updating...")
+    this.showLoading("กำลังแก้ไข...")
     this.firebaseFirestore
       .collection('users')
       .doc(this.uid)
@@ -62,12 +62,12 @@ export class EditProfilePage extends BasePage {
         age: this.age,
         gender: this.gender,
         tel: this.tel,
-        Height: this.height,
-        Weight: this.weight,
+        height: this.height,
+        weight: this.weight,
         intolerance: this.intolerance
       })
       .then(() => {
-        this.showToast("Updated successfully");
+        this.showToast("แก้ไขข้อมูลเสร็จสิ้น");
         this.hideLoading();
           
         this.navCtrl.pop();

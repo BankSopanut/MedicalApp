@@ -27,7 +27,7 @@ export class AddContactPage {
     .collection('Contacts')
     .add({
       name : this.name,
-      length : this.tel,
+      tel : this.tel,
     })
     .then(() => {
       this.navCtrl.pop();

@@ -43,7 +43,7 @@
     "ionicons": "3.0.0",
     "lodash": "^4.17.5",
     "moment": "^2.20.1",
-    "mx.ferreyra.callnumber": "~0.0.2",
+    "mx.ferreyra.callnumber": "0.0.2",
     "phonegap-plugin-barcodescanner": "^7.0.2",
     "promise-polyfill": "^7.0.2",
     "rxjs": "5.5.2",
@@ -64,7 +64,8 @@
       "cordova-plugin-ionic-webview": {},
       "cordova-plugin-local-notification": {},
       "phonegap-plugin-barcodescanner": {},
-      "mx.ferreyra.callnumber": {}
+      "mx.ferreyra.callnumber": {},
+      "call-number": {}
     },
     "platforms": [
       "android"

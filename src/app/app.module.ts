@@ -1,3 +1,5 @@
+import { AddMedicinePage } from './../pages/add-medicine/add-medicine';
+import { DispensePage } from './../pages/dispense/dispense';
 import { LogPage } from './../pages/log/log';
 import { NotificationPage } from './../pages/notification/notification';
 import { AdditionalPage } from './../pages/additional/additional';
@@ -51,7 +53,9 @@ var config = {
     MedicinePage,
     AdditionalPage,
     NotificationPage,
-    LogPage
+    LogPage,
+    DispensePage,
+    AddMedicinePage
   ],
   imports: [
     BrowserModule,
@@ -75,7 +79,9 @@ var config = {
     MedicinePage,
     AdditionalPage,
     NotificationPage,
-    LogPage
+    LogPage,
+    DispensePage,
+    AddMedicinePage
   ],
   providers: [
     StatusBar,

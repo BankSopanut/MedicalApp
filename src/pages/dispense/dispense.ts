@@ -1,22 +1,22 @@
-import { LoadingController } from 'ionic-angular/components/loading/loading-controller';
 import { Component } from '@angular/core';
-import { NavController, NavParams } from 'ionic-angular';
-import BasePage from '../base';
+import { NavController, NavParams, ToastController } from 'ionic-angular';
 import { AngularFireAuth } from 'angularfire2/auth';
 import { AngularFirestore } from 'angularfire2/firestore';
-import { ToastController } from 'ionic-angular/components/toast/toast-controller';
+import { LoadingController } from 'ionic-angular/components/loading/loading-controller';
+import BasePage from '../base';
 
 @Component({
-  selector: 'page-edit-contact',
-  templateUrl: 'edit-contact.html',
+  selector: 'page-dispense',
+  templateUrl: 'dispense.html',
 })
-export class EditContactPage extends BasePage {
+export class DispensePage extends BasePage {
 
   uid: string;
-  id:string;
+  id: string;
 
   name: string;
-  tel: string;
+  date: string;
+  dose: string;
 
   constructor(
     public navCtrl: NavController,
@@ -31,35 +31,30 @@ export class EditContactPage extends BasePage {
   }
 
   ionViewDidLoad() {
-    this.uid = this.firebaseAuth.auth.currentUser.uid;
-
     this.firebaseFirestore
-      .collection('users')
-      .doc(this.uid)
-      .collection('Contacts')
+      .collection('Medicines')
       .doc(this.id)
       .valueChanges()
-      .subscribe((contact: any) => {
-        this.name = contact.name,
-          this.tel = contact.tel
+      .subscribe((medicine: any) => {
+        this.name = medicine.name
       })
   }
 
-  save() {
+  dispense() {
     this.showLoading("กำลังบันทึก...")
     this.firebaseFirestore
       .collection('users')
-      .doc(this.uid)
-      .collection('Contacts')
-      .doc(this.id)
-      .update({
+      .doc(this.firebaseAuth.auth.currentUser.uid)
+      .collection('logs')
+      .add({
         name: this.name,
-        tel: this.tel
+        date: this.date,
+        dose: this.dose,
       })
       .then(() => {
-        this.showToast("แก้ไขข้อมูลเสร็จสิ้น");
+        this.showToast("บันทึกข้อมูลเสร็จสิ้น");
         this.hideLoading();
-          
+
         this.navCtrl.pop();
       })
       .catch(error => {
@@ -67,5 +62,4 @@ export class EditContactPage extends BasePage {
         this.hideLoading();
       })
   }
-
 }

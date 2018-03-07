@@ -1,13 +1,16 @@
+import { LoadingController } from 'ionic-angular/components/loading/loading-controller';
+import { ToastController } from 'ionic-angular/components/toast/toast-controller';
 import { LocalNotifications } from '@ionic-native/local-notifications';
 import { Component } from '@angular/core';
 import { NavController, NavParams, Platform, AlertController } from 'ionic-angular';
 import * as moment from 'moment';
+import BasePage from '../base';
 
 @Component({
   selector: 'page-notification',
   templateUrl: 'notification.html',
 })
-export class NotificationPage {
+export class NotificationPage extends BasePage {
 
   notifyTime: any;
   notifications: any[] = [];
@@ -20,8 +23,12 @@ export class NotificationPage {
     public navParams: NavParams,
     public platform: Platform,
     public alertCtrl: AlertController,
-    public localNotifications: LocalNotifications
+    public localNotifications: LocalNotifications,
+    public toastCtrl: ToastController,
+    public loadingCtrl: LoadingController
   ) {
+    super(toastCtrl, loadingCtrl);
+
     this.notifyTime = moment(new Date()).format();
 
     this.chosenHours = new Date().getHours();
@@ -79,6 +86,7 @@ export class NotificationPage {
       }
     }
     console.log("Notification to be scheduled: ", this.notifications);
+    this.showToast("ตั้งค่าการแจ้งเตือนแล้ว");
 
     if (this.platform.is('cordova')) {
 

@@ -1,3 +1,4 @@
+import { AddMedicinePage } from './../add-medicine/add-medicine';
 import { NotificationPage } from './../notification/notification';
 import { SearchPage } from './../search/search';
 import { HelpPage } from './../help/help';
@@ -59,6 +60,10 @@ export class HomePage extends BasePage {
 
   navigateHelp() {
     this.navCtrl.push(HelpPage);
+  }
+
+  addMedicine() {
+    this.navCtrl.push(AddMedicinePage);
   }
 
   scanBarcode(barcode) {

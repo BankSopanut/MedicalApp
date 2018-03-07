@@ -6,44 +6,43 @@
 
 </ion-header>
 
-
 <ion-content padding>
   <ion-list>
     <ion-item>
-      <ion-label floating>Name</ion-label>
+      <ion-label floating>ชื่อผู้ใช้</ion-label>
       <ion-input type="text" [(ngModel)]="name"></ion-input>
     </ion-item>
 
     <ion-item>
-      <ion-label>Gender</ion-label>
+      <ion-label>เพศ</ion-label>
       <ion-input type="text" [(ngModel)]="gender"></ion-input>
     </ion-item>
 
     <ion-item>
-      <ion-label>Age</ion-label>
+      <ion-label>อายุ</ion-label>
       <ion-input type="number" [(ngModel)]="age"></ion-input>
     </ion-item>
 
     <ion-item>
-      <ion-label floating>Tel.</ion-label>
+      <ion-label floating>เบอร์โทรศัพท์</ion-label>
       <ion-input type="text" [(ngModel)]="tel"></ion-input>
     </ion-item>
 
     <ion-item>
-      <ion-label>Height</ion-label>
+      <ion-label>น้ำหนัก</ion-label>
       <ion-input type="number" [(ngModel)]="height"></ion-input>
     </ion-item>
 
     <ion-item>
-      <ion-label>Weight</ion-label>
+      <ion-label>ส่วนสูง</ion-label>
       <ion-input type="number" [(ngModel)]="weight"></ion-input>
     </ion-item>
 
     <ion-item>
-      <ion-label floating>Intolerance</ion-label>
+      <ion-label floating>การแพ้ยา</ion-label>
       <ion-input type="text" [(ngModel)]="intolerance"></ion-input>
     </ion-item>
   </ion-list>
 
-  <button ion-button full (click)="save()">บันทึก</button>
+  <button ion-button block color="secondary" (click)="save()">บันทึก</button>
 </ion-content>
