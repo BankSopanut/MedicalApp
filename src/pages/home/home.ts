@@ -1,3 +1,4 @@
+import { MapPage } from './../map/map';
 import { AddMedicinePage } from './../add-medicine/add-medicine';
 import { NotificationPage } from './../notification/notification';
 import { SearchPage } from './../search/search';
@@ -60,6 +61,10 @@ export class HomePage extends BasePage {
 
   navigateHelp() {
     this.navCtrl.push(HelpPage);
+  }
+
+  navigateMap() {
+    this.navCtrl.push(MapPage);
   }
 
   addMedicine() {

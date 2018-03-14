@@ -10,9 +10,55 @@
   <ion-list>
     
     <ion-item>
-      <ion-label floating>ชื่อยา</ion-label>
+      <ion-label>รหัสบาร์โค้ด</ion-label>
+      <ion-input type="text" [(ngModel)]="barcode"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>ชื่อยา</ion-label>
       <ion-input type="text" [(ngModel)]="name"></ion-input>
     </ion-item>
+
+    <ion-item>
+      <ion-label>สรรพคุณ</ion-label>
+      <ion-input type="text" [(ngModel)]="cure"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>วิธีใช้</ion-label>
+      <ion-input type="text" [(ngModel)]="how"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>รูปแบบยา</ion-label>
+      <ion-input type="text" [(ngModel)]="form"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label floating>ถ้าลืมใช้ยาควรทำอย่างไร</ion-label>
+      <ion-input type="text" [(ngModel)]="forget"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>ข้อควรระวัง</ion-label>
+      <ion-input type="text" [(ngModel)]="warning"></ion-input>
+    </ion-item>
     
+    <ion-item>
+      <ion-label>การเก็บรักษา</ion-label>
+      <ion-input type="text" [(ngModel)]="keeping"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>ตัวยาสำคัญ</ion-label>
+      <ion-input type="text" [(ngModel)]="ingredients"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>กลุ่มยา</ion-label>
+      <ion-input type="text" [(ngModel)]="type"></ion-input>
+    </ion-item>
   </ion-list>
+
+  <button ion-button block color="secondary" (click)="addMedicine()">บันทึก</button>
 </ion-content>

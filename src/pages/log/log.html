@@ -9,10 +9,18 @@
 
 <ion-content>
   <ion-list>
-    <ion-item *ngFor="let log of results">
-      <h2 color="danger">{{log.data.name}}</h2>
-      <p>จ่าย : {{log.data.date}} ปริมาณ : {{log.data.dose}}</p>
-    </ion-item>
+    <ion-item-sliding *ngFor="let log of results">
+      <ion-item>
+        <h2 color="danger">{{log.data.name}}</h2>
+        <p>จ่าย : {{log.data.date}} ปริมาณ : {{log.data.dose}}</p>
+      </ion-item>
+      <ion-item-options side="right">
+        <button ion-button (click)="delete(log.id)">
+          <ion-icon name="trash"></ion-icon>
+          ลบ
+        </button>
+      </ion-item-options>
+    </ion-item-sliding>
   </ion-list>
 
 </ion-content>

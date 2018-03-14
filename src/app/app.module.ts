@@ -1,3 +1,10 @@
+import { MyApp } from './app.component';
+import { HomePage } from '../pages/home/home';
+import { HelpPage } from '../pages/help/help';
+import { EditContactPage } from '../pages/edit-contact/edit-contact';
+import { AddContactPage } from '../pages/add-contact/add-contact';
+import { MapPage } from './../pages/map/map';
+import { AllnotificationPage } from './../pages/allnotification/allnotification';
 import { AddMedicinePage } from './../pages/add-medicine/add-medicine';
 import { DispensePage } from './../pages/dispense/dispense';
 import { LogPage } from './../pages/log/log';
@@ -9,25 +16,21 @@ import { EditProfilePage } from './../pages/edit-profile/edit-profile';
 import { RegisterPage } from './../pages/register/register';
 import { LoginPage } from './../pages/login/login';
 import { ProfilePage } from './../pages/profile/profile';
-import { BrowserModule } from '@angular/platform-browser';
-import { ErrorHandler, NgModule } from '@angular/core';
-import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
-import { SplashScreen } from '@ionic-native/splash-screen';
-import { StatusBar } from '@ionic-native/status-bar';
-
-import { MyApp } from './app.component';
-import { HomePage } from '../pages/home/home';
 
 import { AngularFireModule } from 'angularfire2';
 import { AngularFireAuthModule } from 'angularfire2/auth';
 import { AngularFirestoreModule } from 'angularfire2/firestore';
+import { BrowserModule } from '@angular/platform-browser';
+import { ErrorHandler, NgModule } from '@angular/core';
+import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
 
+import { SplashScreen } from '@ionic-native/splash-screen';
+import { StatusBar } from '@ionic-native/status-bar';
 import { LocalNotifications } from '@ionic-native/local-notifications';
 import { BarcodeScanner } from '@ionic-native/barcode-scanner';
 import { CallNumber } from '@ionic-native/call-number';
-import { HelpPage } from '../pages/help/help';
-import { EditContactPage } from '../pages/edit-contact/edit-contact';
-import { AddContactPage } from '../pages/add-contact/add-contact';
+import { SpeechRecognition } from '@ionic-native/speech-recognition';
+import { Geolocation } from '@ionic-native/geolocation';
 
 var config = {
   apiKey: "AIzaSyB54AyELxFaVVzdp-FHYrEk7w6LV-4ATgo",
@@ -55,7 +58,9 @@ var config = {
     NotificationPage,
     LogPage,
     DispensePage,
-    AddMedicinePage
+    AddMedicinePage,
+    AllnotificationPage,
+    MapPage
   ],
   imports: [
     BrowserModule,
@@ -81,15 +86,19 @@ var config = {
     NotificationPage,
     LogPage,
     DispensePage,
-    AddMedicinePage
+    AddMedicinePage,
+    AllnotificationPage,
+    MapPage
   ],
   providers: [
     StatusBar,
     SplashScreen,
-    { provide: ErrorHandler, useClass: IonicErrorHandler, },
     LocalNotifications,
     BarcodeScanner,
-    CallNumber
+    CallNumber,
+    SpeechRecognition,
+    Geolocation,
+    { provide: ErrorHandler, useClass: IonicErrorHandler, }
   ]
 })
 export class AppModule { }

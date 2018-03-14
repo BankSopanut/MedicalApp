@@ -1,0 +1,16 @@
+<ion-header>
+
+  <ion-navbar color="danger">
+    <ion-title>การแจ้งเตือน</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+<ion-content>
+  <ion-list>
+    <button ion-item *ngFor="let notification of results">
+      <h2>{{notification.data.at}}</h2>
+      <p>{{notification.data.every}}</p>
+    </button>
+  </ion-list>
+</ion-content>

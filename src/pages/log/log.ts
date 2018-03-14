@@ -56,4 +56,22 @@ export class LogPage extends BasePage {
         this.showToast(error);
       })
   }
+
+  delete(logID) {
+    this.showLoading("กำลังลบ...")
+    this.firebaseFirestore
+      .collection('users')
+      .doc(this.uid)
+      .collection('logs')
+      .doc(logID)
+      .delete()
+      .then(() => {
+        this.hideLoading();
+        this.showToast("Deleted sucessfully");
+      })
+      .catch(error => {
+        this.hideLoading();
+        this.showToast(error);
+      });
+  }
 }

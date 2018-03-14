@@ -1,3 +1,4 @@
+import { SpeechRecognition } from '@ionic-native/speech-recognition';
 import { AddMedicinePage } from './../add-medicine/add-medicine';
 import { MedicinePage } from './../medicine/medicine';
 import { LoadingController } from 'ionic-angular/components/loading/loading-controller';
@@ -25,7 +26,8 @@ export class SearchPage extends BasePage {
     public firebaseAuth: AngularFireAuth,
     public firebaseFirestore: AngularFirestore,
     public toastCtrl: ToastController,
-    public loadingCtrl: LoadingController
+    public loadingCtrl: LoadingController,
+    public speechRecognition: SpeechRecognition
   ) {
     super(toastCtrl, loadingCtrl)
     this.barcode = this.navParams.get('barcode');
@@ -33,7 +35,7 @@ export class SearchPage extends BasePage {
 
   ionViewDidLoad() {
 
-    this.showLoading("Fetching Data...")
+    this.showLoading("กำลังดึงข้อมูล...")
     this.firebaseFirestore
       .collection('Medicines')
       .snapshotChanges()
@@ -82,6 +84,40 @@ export class SearchPage extends BasePage {
         return (item.data.barcode.toLowerCase().indexOf(barcode.toLowerCase()) > -1);
       })
     }
+  }
+
+  voiceSearch(voice) {
+    // Check feature available
+    this.speechRecognition.isRecognitionAvailable()
+      .then((available: boolean) => console.log(available))
+
+    // Start the recognition process
+    this.speechRecognition.startListening(options)
+      .subscribe(
+        (matches: Array<string>) => console.log(matches),
+        (onerror) => console.log('error:', onerror)
+      )
+
+    // Stop the recognition process (iOS only)
+    this.speechRecognition.stopListening()
+
+    // Get the list of supported languages
+    this.speechRecognition.getSupportedLanguages()
+      .then(
+        (languages: Array<string>) => console.log(languages),
+        (error) => console.log(error)
+      )
+
+    // Check permission
+    this.speechRecognition.hasPermission()
+      .then((hasPermission: boolean) => console.log(hasPermission))
+
+    // Request permissions
+    this.speechRecognition.requestPermission()
+      .then(
+        () => console.log('Granted'),
+        () => console.log('Denied')
+      )
   }
 
   medData(medicineID) {
