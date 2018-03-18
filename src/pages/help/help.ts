@@ -1,6 +1,5 @@
 import { AddContactPage } from './../add-contact/add-contact';
 import { LoadingController } from 'ionic-angular/components/loading/loading-controller';
-import { Loading } from 'ionic-angular/components/loading/loading';
 import { ToastController } from 'ionic-angular/components/toast/toast-controller';
 import { Component } from '@angular/core';
 import { NavController, NavParams, ActionSheetController } from 'ionic-angular';
@@ -62,23 +61,12 @@ export class HelpPage extends BasePage {
         this.showToast(error);
       })
   }
-  call(Contacttel) {
-    this.firebaseFirestore
-      .collection('users')
-      .doc(this.uid)
-      .collection('Contacts')
-      .doc(Contacttel)
-
-    this.callNumber.callNumber(Contacttel, true)
-      .then(() => console.log('Launched dialer!'))
-      .catch(() => console.log('Error launching dialer'));
-  }
 
   navigateAddcontact() {
     this.navCtrl.push(AddContactPage);
   }
 
-  presentActionSheet(contactID, contactTel) {
+  presentActionSheet(contactID) {
     let actionSheet = this.actionSheetCtrl.create({
       title: 'ตัวเลือก',
       buttons: [
@@ -86,13 +74,8 @@ export class HelpPage extends BasePage {
           text: 'โทร',
           role: 'destructive',
           handler: () => {
-            this.firebaseFirestore
-            .collection('users')
-            .doc(this.uid)
-            .collection('Contacts')
-            .doc(contactID)
       
-          this.callNumber.callNumber(contactTel, true)
+          this.callNumber.callNumber("contactTel", true)
             .then(() => console.log('Launched dialer!'))
             .catch(() => console.log('Error launching dialer'));
           }

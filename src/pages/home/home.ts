@@ -4,7 +4,6 @@ import { NotificationPage } from './../notification/notification';
 import { SearchPage } from './../search/search';
 import { HelpPage } from './../help/help';
 import { ProfilePage } from './../profile/profile';
-import { LoginPage } from './../login/login';
 import { LoadingController } from 'ionic-angular/components/loading/loading-controller';
 import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
@@ -71,11 +70,15 @@ export class HomePage extends BasePage {
     this.navCtrl.push(AddMedicinePage);
   }
 
-  scanBarcode(barcode) {
+  getItemsFromCode(code) {
+    this.navCtrl.push(SearchPage, {
+      code: code
+    });
+  }
+
+  scanBarcode() {
     this.barcodeScanner.scan().then((barcodeData) => {
-      this.navCtrl.push(SearchPage, {
-        code: barcode
-      });
+      this.getItemsFromCode(barcodeData.text);
     }, (err) => {
       // An error occurred
     });

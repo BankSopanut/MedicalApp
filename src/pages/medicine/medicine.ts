@@ -2,7 +2,6 @@ import { DispensePage } from './../dispense/dispense';
 import { AdditionalPage } from './../additional/additional';
 import { Component } from '@angular/core';
 import { NavController, NavParams, ToastController, LoadingController } from 'ionic-angular';
-import { AngularFireAuth } from 'angularfire2/auth';
 import { AngularFirestore } from 'angularfire2/firestore';
 import BasePage from '../base';
 

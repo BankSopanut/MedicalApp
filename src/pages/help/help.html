@@ -9,7 +9,7 @@
 <ion-content padding>
 
   <ion-list>
-    <button ion-item *ngFor="let contact of results" (click)="presentActionSheet(contact.id, contact.tel)">
+    <button ion-item *ngFor="let contact of results" (click)="presentActionSheet(contact.id)">
       <ion-icon name="contact" item-start></ion-icon>
       <h2>{{contact.data.name}}</h2>
       <p>{{contact.data.tel}}</p>

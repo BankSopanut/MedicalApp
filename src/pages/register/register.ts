@@ -3,7 +3,6 @@ import { NavController, NavParams } from 'ionic-angular';
 import { AngularFireAuth } from 'angularfire2/auth';
 import { LoadingController } from 'ionic-angular/components/loading/loading-controller';
 import { ToastController } from 'ionic-angular/components/toast/toast-controller';
-import { Loading } from 'ionic-angular/components/loading/loading';
 import BasePage from '../base';
 import { AngularFirestore } from 'angularfire2/firestore';
 

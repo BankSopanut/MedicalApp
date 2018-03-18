@@ -82,13 +82,17 @@
     <plugin name="cordova-plugin-splashscreen" spec="~4.0.1" />
     <plugin name="cordova-plugin-ionic-webview" spec="^1.1.11" />
     <allow-navigation href="http://10.80.166.255:8100" />
-    <plugin name="cordova-plugin-local-notification" spec="^0.9.0-beta.2" />
-    <plugin name="phonegap-plugin-barcodescanner" spec="^7.0.2" />
-    <plugin name="mx.ferreyra.callnumber" spec="~0.0.2" />
     <allow-navigation href="http://192.168.1.4:8100" />
     <allow-navigation href="http://10.10.126.114:8100" />
-    <engine name="android" spec="7.0.0" />
+    <plugin name="cordova-plugin-local-notification" spec="^0.9.0-beta.2" />
+    <plugin name="phonegap-plugin-barcodescanner" spec="^7.0.3" />
+    <plugin name="mx.ferreyra.callnumber" spec="0.0.2" />
+    <plugin name="cordova-plugin-geolocation" spec="^4.0.1">
+        <variable name="GEOLOCATION_USAGE_DESCRIPTION" value="To locate you" />
+    </plugin>
+    <plugin name="cordova-plugin-speechrecognition" spec="^1.2.0" />
     <plugin name="cordova-android-support-gradle-release" spec="^1.2.0">
         <variable name="ANDROID_SUPPORT_VERSION" value="26.+" />
     </plugin>
+    <engine name="android" spec="7.0.0" />
 </widget>
