@@ -56,17 +56,19 @@ export class HelpPage extends BasePage {
 
         this.hideLoading();
       },
-      (error) => {
-        this.hideLoading();
-        this.showToast(error);
-      })
+        (error) => {
+          this.hideLoading();
+          this.showToast(error);
+        })
   }
 
   navigateAddcontact() {
     this.navCtrl.push(AddContactPage);
   }
 
-  presentActionSheet(contactID) {
+  presentActionSheet(contactID, contactTel) {
+    console.log(contactID, contactTel)
+
     let actionSheet = this.actionSheetCtrl.create({
       title: 'ตัวเลือก',
       buttons: [
@@ -74,10 +76,15 @@ export class HelpPage extends BasePage {
           text: 'โทร',
           role: 'destructive',
           handler: () => {
-      
-          this.callNumber.callNumber("contactTel", true)
-            .then(() => console.log('Launched dialer!'))
-            .catch(() => console.log('Error launching dialer'));
+            this.firebaseFirestore
+              .collection('users')
+              .doc(this.uid)
+              .collection('Contacts')
+              .doc(contactID)
+
+            this.callNumber.callNumber(contactTel, true)
+              .then(() => console.log('Launched dialer!'))
+              .catch(() => console.log('Error launching dialer'));
           }
         }, {
           text: 'แก้ไข',

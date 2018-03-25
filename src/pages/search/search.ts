@@ -51,11 +51,20 @@ export class SearchPage extends BasePage {
         this.results = this.items;
 
         this.hideLoading();
+        this.getItemsFromCode(this.code)
       },
         (error) => {
           this.hideLoading();
           this.showToast(error);
         })
+  }
+
+  getItemFromSearchbar = (event) => {
+    if (event.target) {
+      this.getItems(event)
+    } else {
+      this.getItemsFromCode(this.code)
+    }
   }
 
   getItems(event) {
@@ -72,7 +81,7 @@ export class SearchPage extends BasePage {
     }
   }
 
-  getItemsFromCode(code) {
+   getItemsFromCode(code) {
 
     if (code == '') {
       this.results = this.items;
@@ -80,7 +89,9 @@ export class SearchPage extends BasePage {
 
     if (code && code.trim() != '') {
       this.results = this.items.filter((item) => {
-        return (item.data.barcode.toLowerCase().indexOf(code.toLowerCase()) > -1);
+        if (item.data.barcode) {
+        return (item.data.barcode.indexOf(code) > -1);
+        }
       })
     }
   }

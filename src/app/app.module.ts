@@ -31,6 +31,8 @@ import { BarcodeScanner } from '@ionic-native/barcode-scanner';
 import { CallNumber } from '@ionic-native/call-number';
 import { SpeechRecognition } from '@ionic-native/speech-recognition';
 import { Geolocation } from '@ionic-native/geolocation';
+import { MobileAccessibility } from '@ionic-native/mobile-accessibility';
+
 
 var config = {
   apiKey: "AIzaSyB54AyELxFaVVzdp-FHYrEk7w6LV-4ATgo",
@@ -97,6 +99,7 @@ var config = {
     BarcodeScanner,
     CallNumber,
     SpeechRecognition,
+    MobileAccessibility,
     Geolocation,
     { provide: ErrorHandler, useClass: IonicErrorHandler, }
   ]

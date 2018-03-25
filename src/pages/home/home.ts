@@ -21,11 +21,6 @@ import { LogPage } from '../log/log';
 })
 export class HomePage extends BasePage {
 
-  items = [];
-  results = [];
-
-  id: string = '';
-
   constructor(
     public navCtrl: NavController,
     public navParams: NavParams,
@@ -33,7 +28,7 @@ export class HomePage extends BasePage {
     public firebaseFirestore: AngularFirestore,
     public toastCtrl: ToastController,
     public loadingCtrl: LoadingController,
-    public barcodeScanner: BarcodeScanner
+    public barcodeScanner: BarcodeScanner,
   ) {
     super(toastCtrl, loadingCtrl);
   }
@@ -70,15 +65,11 @@ export class HomePage extends BasePage {
     this.navCtrl.push(AddMedicinePage);
   }
 
-  getItemsFromCode(code) {
-    this.navCtrl.push(SearchPage, {
-      code: code
-    });
-  }
-
   scanBarcode() {
     this.barcodeScanner.scan().then((barcodeData) => {
-      this.getItemsFromCode(barcodeData.text);
+      this.navCtrl.push(SearchPage, {
+        code: barcodeData.text
+      });
     }, (err) => {
       // An error occurred
     });
