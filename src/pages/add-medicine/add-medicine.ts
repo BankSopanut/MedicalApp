@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { NavController, NavParams, ToastController, LoadingController } from 'ionic-angular';
 import { AngularFirestore } from 'angularfire2/firestore';
 import BasePage from '../base';
+import { BarcodeScanner } from '@ionic-native/barcode-scanner';
 
 
 @Component({
@@ -26,7 +27,8 @@ export class AddMedicinePage extends BasePage {
     public navParams: NavParams,
     public firebaseFirestore: AngularFirestore,
     public toastCtrl: ToastController,
-    public loadingCtrl: LoadingController
+    public loadingCtrl: LoadingController,
+    public barcodeScanner: BarcodeScanner
   ) {
     super(toastCtrl, loadingCtrl);
   }
@@ -59,4 +61,9 @@ export class AddMedicinePage extends BasePage {
       })
   }
 
+  scanBarcode() {
+    this.barcodeScanner.scan().then(barcodeData => {
+      this.barcode = barcodeData.text;
+    });
+  }
 }

@@ -14,6 +14,7 @@ import { AngularFirestore } from 'angularfire2/firestore';
 import { ToastController } from 'ionic-angular/components/toast/toast-controller';
 import { BarcodeScanner } from '@ionic-native/barcode-scanner';
 import { LogPage } from '../log/log';
+import { MobileAccessibility } from '@ionic-native/mobile-accessibility';
 
 @Component({
   selector: 'page-home',
@@ -29,6 +30,7 @@ export class HomePage extends BasePage {
     public toastCtrl: ToastController,
     public loadingCtrl: LoadingController,
     public barcodeScanner: BarcodeScanner,
+    public moblieAccessibility: MobileAccessibility
   ) {
     super(toastCtrl, loadingCtrl);
   }
@@ -74,5 +76,18 @@ export class HomePage extends BasePage {
       // An error occurred
     });
   }
+
+  // async sayText(): Promise<any> {
+  //   try {
+  //     await this.tts.speak({
+  //       text: this.TextToSpeech,
+  //       locale: "th_TH_TH_#u-nu-thai"
+  //     });
+  //     console.log("successfully spoke" + this.TextToSpeech);
+  //   }
+  //   catch (e) {
+  //     console.log(e);
+  //   }
+  // }
 
 }

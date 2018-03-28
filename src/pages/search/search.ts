@@ -59,14 +59,6 @@ export class SearchPage extends BasePage {
         })
   }
 
-  getItemFromSearchbar = (event) => {
-    if (event.target) {
-      this.getItems(event)
-    } else {
-      this.getItemsFromCode(this.code)
-    }
-  }
-
   getItems(event) {
     let val = event.target.value;
 
@@ -81,7 +73,7 @@ export class SearchPage extends BasePage {
     }
   }
 
-   getItemsFromCode(code) {
+  getItemsFromCode(code) {
 
     if (code == '') {
       this.results = this.items;
@@ -90,9 +82,9 @@ export class SearchPage extends BasePage {
     if (code && code.trim() != '') {
       this.results = this.items.filter((item) => {
         if (item.data.barcode) {
-        return (item.data.barcode.indexOf(code) > -1);
+          return (item.data.barcode.indexOf(code) > -1);
         }
-      })
+      });
     }
   }
 

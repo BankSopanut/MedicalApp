@@ -1,7 +1,11 @@
 <ion-header>
-
   <ion-navbar color="danger">
     <ion-title>เพิ่มข้อมูลยา</ion-title>
+    <ion-buttons end>
+      <button ion-button icon-only color="light" (click)="scanBarcode()">
+        <ion-icon name="barcode"></ion-icon>
+      </button>
+    </ion-buttons>
   </ion-navbar>
 
 </ion-header>
@@ -11,7 +15,7 @@
     
     <ion-item>
       <ion-label>รหัสบาร์โค้ด</ion-label>
-      <ion-input type="text" [(ngModel)]="barcode"></ion-input>
+      <ion-input type="text" [(ngModel)]="barcode">{{barcode}}</ion-input>
     </ion-item>
 
     <ion-item>
