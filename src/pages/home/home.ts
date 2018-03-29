@@ -35,39 +35,43 @@ export class HomePage extends BasePage {
     super(toastCtrl, loadingCtrl);
   }
 
-  logout() {
-    this.firebaseAuth.auth.signOut();
-  }
-
   navigateSearch() {
+    this.moblieAccessibility.speak("ค้นหาข้อมูลยา");
     this.navCtrl.push(SearchPage);
   }
 
   navigateProfile() {
+    this.moblieAccessibility.speak("ประวัติผู้ใช้");
     this.navCtrl.push(ProfilePage);
   }
 
   navigateSetNotification() {
+    this.moblieAccessibility.speak("เตือนการกินยา");
     this.navCtrl.push(NotificationPage);
   }
 
   navigateLog() {
+    this.moblieAccessibility.speak("สรุปผลการใช้ยา");
     this.navCtrl.push(LogPage);
   }
 
   navigateHelp() {
+    this.moblieAccessibility.speak("ขอความช่วยเหลือ");
     this.navCtrl.push(HelpPage);
   }
 
   navigateMap() {
+    this.moblieAccessibility.speak("ร้านขายยาใกล้เคียง");
     this.navCtrl.push(MapPage);
   }
 
   addMedicine() {
+    this.moblieAccessibility.speak("เพิ่มข้อมูลยา");
     this.navCtrl.push(AddMedicinePage);
   }
 
   scanBarcode() {
+    this.moblieAccessibility.speak("แสกนบาร์โค้ด");
     this.barcodeScanner.scan().then((barcodeData) => {
       this.navCtrl.push(SearchPage, {
         code: barcodeData.text
@@ -76,18 +80,5 @@ export class HomePage extends BasePage {
       // An error occurred
     });
   }
-
-  // async sayText(): Promise<any> {
-  //   try {
-  //     await this.tts.speak({
-  //       text: this.TextToSpeech,
-  //       locale: "th_TH_TH_#u-nu-thai"
-  //     });
-  //     console.log("successfully spoke" + this.TextToSpeech);
-  //   }
-  //   catch (e) {
-  //     console.log(e);
-  //   }
-  // }
 
 }
