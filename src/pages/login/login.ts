@@ -26,7 +26,7 @@ export class LoginPage extends BasePage{
   }
 
   login() {
-    this.showLoading("Logging in...");
+    this.showLoading("เข้าสู่ระบบ...");
     this.firebaseAuth
       .auth
       .signInWithEmailAndPassword(this.email, this.password)

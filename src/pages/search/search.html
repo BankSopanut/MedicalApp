@@ -7,7 +7,7 @@
 </ion-header>
 
 <ion-content>
-  <ion-searchbar (ionInput)="getItems($event)" [(ngModel)]="voice"></ion-searchbar>
+  <ion-searchbar (ionInput)="getItems($event)" (ionClear)="showAllItems()" [(ngModel)]="code"></ion-searchbar>
   <button ion-button icon-left color="primary" block (click)="listening()">
     <ion-icon name="mic"></ion-icon>ค้นหายาด้วยเสียง
   </button>

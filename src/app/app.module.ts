@@ -4,7 +4,6 @@ import { HelpPage } from '../pages/help/help';
 import { EditContactPage } from '../pages/edit-contact/edit-contact';
 import { AddContactPage } from '../pages/add-contact/add-contact';
 import { MapPage } from './../pages/map/map';
-import { AllnotificationPage } from './../pages/allnotification/allnotification';
 import { AddMedicinePage } from './../pages/add-medicine/add-medicine';
 import { DispensePage } from './../pages/dispense/dispense';
 import { LogPage } from './../pages/log/log';
@@ -31,7 +30,6 @@ import { BarcodeScanner } from '@ionic-native/barcode-scanner';
 import { CallNumber } from '@ionic-native/call-number';
 import { SpeechRecognition } from '@ionic-native/speech-recognition';
 import { Geolocation } from '@ionic-native/geolocation';
-import { MobileAccessibility } from '@ionic-native/mobile-accessibility';
 
 
 var config = {
@@ -61,7 +59,6 @@ var config = {
     LogPage,
     DispensePage,
     AddMedicinePage,
-    AllnotificationPage,
     MapPage
   ],
   imports: [
@@ -89,7 +86,6 @@ var config = {
     LogPage,
     DispensePage,
     AddMedicinePage,
-    AllnotificationPage,
     MapPage
   ],
   providers: [
@@ -99,7 +95,6 @@ var config = {
     BarcodeScanner,
     CallNumber,
     SpeechRecognition,
-    MobileAccessibility,
     Geolocation,
     { provide: ErrorHandler, useClass: IonicErrorHandler, }
   ]

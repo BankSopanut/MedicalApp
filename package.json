@@ -51,7 +51,6 @@
     "moment": "^2.20.1",
     "mx.ferreyra.callnumber": "0.0.2",
     "phonegap-plugin-barcodescanner": "^7.0.3",
-    "phonegap-plugin-mobile-accessibility": "^1.0.5",
     "promise-polyfill": "^7.0.2",
     "rxjs": "5.5.2",
     "sw-toolbox": "3.6.0",

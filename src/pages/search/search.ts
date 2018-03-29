@@ -15,7 +15,6 @@ import BasePage from '../base';
 export class SearchPage extends BasePage {
 
   code: string;
-  voice: string;
 
   items = [];
   results = [];
@@ -60,6 +59,10 @@ export class SearchPage extends BasePage {
         })
   }
 
+  showAllItems() {
+    this.results = this.items;
+  }
+
   getItems(event) {
     let val = event.target.value;
 
@@ -69,7 +72,13 @@ export class SearchPage extends BasePage {
 
     if (val && val.trim() != '') {
       this.results = this.items.filter((item) => {
-        return (item.data.name, item.data.cure.toLowerCase().indexOf(val.toLowerCase()) > -1)
+        let found_name = item.data.name.toLowerCase().indexOf(val.toLowerCase()) > -1;
+        let found_cure = item.data.cure.toLowerCase().indexOf(val.toLowerCase()) > -1;
+        let found_barcode = false;
+        if (item.data.barcode) {
+          found_barcode = item.data.barcode.indexOf(val.toLowerCase()) > -1;
+        }
+        return found_name || found_cure || found_barcode;
       });
     }
   }
@@ -82,24 +91,13 @@ export class SearchPage extends BasePage {
 
     if (code && code.trim() != '') {
       this.results = this.items.filter((item) => {
+        let found_name = item.data.name.toLowerCase().indexOf(code.toLowerCase()) > -1;
+        let found_cure = item.data.cure.toLowerCase().indexOf(code.toLowerCase()) > -1;
+        let found_barcode = false;
         if (item.data.barcode) {
-          return (item.data.barcode.indexOf(code) > -1);
+          found_barcode = item.data.barcode.indexOf(code.toLowerCase()) > -1;
         }
-      });
-    }
-  }
-
-  getItemFromVoice(voice) {
-
-    if (voice == '') {
-      this.results = this.items;
-    }
-
-    if (voice && voice.trim() != '') {
-      this.results = this.items.filter((item) => {
-        if (item.data.name) {
-          return (item.data.name.toLowerCase().indexOf(voice.toLowerCase()) > -1);
-        }
+        return found_name || found_cure || found_barcode;
       });
     }
   }
@@ -116,9 +114,13 @@ export class SearchPage extends BasePage {
       language: 'th-TH'
     }
     this.speechRecognition.startListening(options).subscribe(voiceData => {
-      this.getItemFromVoice(voiceData.toString);
+      // this.showToast(voiceData.tostring())
+      if (voiceData) {
+        this.code = voiceData[0]
+        this.getItemsFromCode(this.code)
+      }
     }, (err) => {
-      this.showToast(err);
+      this.showToast('ลองใหม่อีกครั้ง');
     });
   }
 
