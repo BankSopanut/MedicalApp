@@ -19,10 +19,10 @@ import {
 declare var google;
 
 @Component({
-  selector: "page-map",
-  templateUrl: "map.html"
+  selector: "page-hospital",
+  templateUrl: "hospital.html"
 })
-export class MapPage {
+export class HospitalPage {
   @ViewChild("map") private mapElement;
   @ViewChild("web_map") private webMapElement;
 
@@ -83,7 +83,7 @@ export class MapPage {
     let nearyByRequest = {
       location: currentLocation,
       radius: "5000",
-      type: ["pharmacy"]
+      type: ["hospital"]
     };
 
     this.map.moveCamera({

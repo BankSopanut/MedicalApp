@@ -84,7 +84,6 @@
     <allow-navigation href="http://10.80.166.255:8100" />
     <allow-navigation href="http://192.168.1.4:8100" />
     <allow-navigation href="http://10.10.126.114:8100" />
-    <plugin name="cordova-plugin-local-notification" spec="^0.9.0-beta.2" />
     <plugin name="phonegap-plugin-barcodescanner" spec="^7.0.3" />
     <plugin name="mx.ferreyra.callnumber" spec="0.0.2" />
     <plugin name="cordova-plugin-geolocation" spec="^4.0.1">
@@ -94,4 +93,12 @@
     <plugin name="cordova-android-support-gradle-release" spec="^1.2.0">
         <variable name="ANDROID_SUPPORT_VERSION" value="26.+" />
     </plugin>
+    <engine name="android" spec="~7.0.0" />
+    <plugin name="cordova-plugin-googlemaps" spec="^2.2.9">
+        <variable name="API_KEY_FOR_ANDROID" value="AIzaSyDazoZlgH53B3GreW1OX0698sbhRymLNW0" />
+        <variable name="API_KEY_FOR_IOS" value="AIzaSyCxIt8GrxfL1k0u66C56B2q1FtiRfuhpls" />
+        <variable name="PLAY_SERVICES_VERSION" value="12.0.0" />
+        <variable name="ANDROID_SUPPORT_V4_VERSION" value="24.1.0" />
+    </plugin>
+    <plugin name="cordova-plugin-local-notification" spec="^0.9.0-beta.2" />
 </widget>

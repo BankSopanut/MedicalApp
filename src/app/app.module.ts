@@ -30,6 +30,9 @@ import { BarcodeScanner } from '@ionic-native/barcode-scanner';
 import { CallNumber } from '@ionic-native/call-number';
 import { SpeechRecognition } from '@ionic-native/speech-recognition';
 import { Geolocation } from '@ionic-native/geolocation';
+import { HospitalPage } from '../pages/hospital/hospital';
+import { GoogleMap, GoogleMaps } from '@ionic-native/google-maps';
+import { AddNotificationPage } from '../pages/add-notification/add-notification';
 
 
 var config = {
@@ -59,7 +62,10 @@ var config = {
     LogPage,
     DispensePage,
     AddMedicinePage,
-    MapPage
+    MapPage,
+    HospitalPage,
+    AddNotificationPage,
+    NotificationPage
   ],
   imports: [
     BrowserModule,
@@ -86,7 +92,10 @@ var config = {
     LogPage,
     DispensePage,
     AddMedicinePage,
-    MapPage
+    MapPage,
+    HospitalPage,
+    AddNotificationPage,
+    NotificationPage
   ],
   providers: [
     StatusBar,
@@ -96,6 +105,8 @@ var config = {
     CallNumber,
     SpeechRecognition,
     Geolocation,
+    GoogleMaps,
+    LocalNotifications,
     { provide: ErrorHandler, useClass: IonicErrorHandler, }
   ]
 })
