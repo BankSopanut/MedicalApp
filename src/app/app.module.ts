@@ -30,8 +30,7 @@ import { BarcodeScanner } from '@ionic-native/barcode-scanner';
 import { CallNumber } from '@ionic-native/call-number';
 import { SpeechRecognition } from '@ionic-native/speech-recognition';
 import { Geolocation } from '@ionic-native/geolocation';
-import { HospitalPage } from '../pages/hospital/hospital';
-import { GoogleMap, GoogleMaps } from '@ionic-native/google-maps';
+import { GoogleMaps } from '@ionic-native/google-maps';
 import { AddNotificationPage } from '../pages/add-notification/add-notification';
 
 
@@ -63,7 +62,6 @@ var config = {
     DispensePage,
     AddMedicinePage,
     MapPage,
-    HospitalPage,
     AddNotificationPage,
     NotificationPage
   ],
@@ -93,14 +91,12 @@ var config = {
     DispensePage,
     AddMedicinePage,
     MapPage,
-    HospitalPage,
     AddNotificationPage,
     NotificationPage
   ],
   providers: [
     StatusBar,
     SplashScreen,
-    LocalNotifications,
     BarcodeScanner,
     CallNumber,
     SpeechRecognition,

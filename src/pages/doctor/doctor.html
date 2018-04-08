@@ -1,0 +1,26 @@
+<ion-header>
+
+  <ion-navbar color="danger">
+    <ion-title>เพิ่มข้อมูลยา</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+<ion-content>
+  <div class="flex flex-col items-center">
+    <h1 color="danger" margin-bottom>สำหรับแพทย์เท่านั้น</h1>
+  </div>
+  <ion-list>
+    <ion-item>
+      <ion-label floating>อีเมล์</ion-label>
+      <ion-input type="email" [(ngModel)]="email"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label floating>รหัสผ่าน</ion-label>
+      <ion-input type="password" [(ngModel)]="password"></ion-input>
+    </ion-item>
+  </ion-list>
+
+  <button ion-button block color="danger" (click)="login()">เข้าสู่ระบบ</button>
+</ion-content>

@@ -14,7 +14,6 @@ import {
   MarkerOptions,
   Marker
 } from "@ionic-native/google-maps";
-//import { HospitalSearchPage } from "../hospital-search/hospital-search";
 
 declare var google;
 
@@ -29,7 +28,7 @@ export class MapPage {
   private map: any;
 
   private view: string = "map";
-  public hospitals: any;
+  public pharmacys: any;
 
   private loader: Loading;
 
@@ -66,7 +65,7 @@ export class MapPage {
   }
 
   async loadMap() {
-    this.showLoading("Preparing map...");
+    this.showLoading("กำลังเตรียมแผนที่...");
     let geoResult = await this.geolocation.getCurrentPosition()
 
     let lat = geoResult.coords.latitude;
@@ -93,46 +92,46 @@ export class MapPage {
 
     this.googlePlaceService.nearbySearch(nearyByRequest, (result, status) => {
 
-      result.map(async hospital => {
-        let hospitalLatLng = new google.maps.LatLng(
-          hospital.geometry.location.lat(),
-          hospital.geometry.location.lng()
+      result.map(async pharmacy => {
+        let pharmacyLatLng = new google.maps.LatLng(
+          pharmacy.geometry.location.lat(),
+          pharmacy.geometry.location.lng()
         );
 
         /* Request distance and duration */
         let distanceRequest = {
           origins: [currentLocation],
-          destinations: [hospitalLatLng],
+          destinations: [pharmacyLatLng],
           travelMode: "DRIVING"
         };
         this.googleDistanceMatrix.getDistanceMatrix(distanceRequest, response => {
-          hospital.distance = response.rows[0].elements[0].distance.text;
-          hospital.duration = response.rows[0].elements[0].duration.text;
+          pharmacy.distance = response.rows[0].elements[0].distance.text;
+          pharmacy.duration = response.rows[0].elements[0].duration.text;
         }
         );
 
         /* Request place detail for phone number */
-        let placeDetailRequest = { placeId: hospital.place_id };
+        let placeDetailRequest = { placeId: pharmacy.place_id };
         this.googlePlaceService.getDetails(placeDetailRequest, (place, status) => {
-          if (status === 'OK') hospital.phoneNumber = place.international_phone_number;
+          if (status === 'OK') pharmacy.phoneNumber = place.international_phone_number;
         });
 
-        /* Add each hospital to marker and show actionsheet when cliked*/
+        /* Add each pharmacy to marker and show actionsheet when cliked*/
         let marker = await this.map.addMarker({
-          title: hospital.name,
+          title: pharmacy.name,
           icon: "red",
           label: "H",
           animation: "BOUNCE",
           position: {
-            lat: hospital.geometry.location.lat(),
-            lng: hospital.geometry.location.lng()
+            lat: pharmacy.geometry.location.lat(),
+            lng: pharmacy.geometry.location.lng()
           }
         })
         marker.on(GoogleMapsEvent.MARKER_CLICK).subscribe(() => {
-          this.showActionSheet(hospital.phoneNumber);
+          this.showActionSheet(pharmacy.phoneNumber);
         });
 
-        this.hospitals = result;
+        this.pharmacys = result;
 
       });
     });
@@ -166,16 +165,12 @@ export class MapPage {
     this.loader.dismiss();
   }
 
-  search() {
-    //this.modalCtrl.create(HospitalSearchPage).present();
-  }
-
   showActionSheet(data) {
     let actionSheet = this.actionSheetCtrl.create({
       title: 'Action',
       buttons: [
         {
-          text: 'Emergency call',
+          text: 'โทรฉุกเฉิน',
           role: 'destructive',
           icon: !this.platform.is('ios') ? 'call' : null,
           handler: () => {
@@ -199,17 +194,17 @@ export class MapPage {
       this.zone.run(() => {
         predictions.forEach(async (prediction) => {
           this.autoCompleteItems.push(prediction);
-          this.hospitals = [];
+          this.pharmacys = [];
 
           /* Request distance and duration */
           // let distanceRequest = {
           //   origins: [currentLocation],
-          //   destinations: [hospitalLatLng],
+          //   destinations: [pharmacyLatLng],
           //   travelMode: "DRIVING"
           // };
           // this.googleDistanceMatrix.getDistanceMatrix(distanceRequest, response => {
-          //   hospital.distance = response.rows[0].elements[0].distance.text;
-          //   hospital.duration = response.rows[0].elements[0].duration.text;
+          //   pharmacy.distance = response.rows[0].elements[0].distance.text;
+          //   pharmacy.duration = response.rows[0].elements[0].duration.text;
           // });
 
           /* Request place detail for phone number */
@@ -218,7 +213,7 @@ export class MapPage {
             if (status === 'OK') prediction.phoneNumber = place.international_phone_number;
           });
 
-          /* Add each hospital to marker and show actionsheet when cliked*/
+          /* Add each pharmacy to marker and show actionsheet when cliked*/
           let marker = await this.map.addMarker({
             title: prediction.name,
             icon: "red",
@@ -235,7 +230,7 @@ export class MapPage {
               this.showActionSheet(prediction.phoneNumber);
             });
 
-          this.hospitals = prediction;
+          this.pharmacys = prediction;
 
         });
 

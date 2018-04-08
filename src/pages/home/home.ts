@@ -14,13 +14,15 @@ import { AngularFirestore } from 'angularfire2/firestore';
 import { ToastController } from 'ionic-angular/components/toast/toast-controller';
 import { BarcodeScanner } from '@ionic-native/barcode-scanner';
 import { LogPage } from '../log/log';
-import { HospitalPage } from '../hospital/hospital';
 
 @Component({
   selector: 'page-home',
   templateUrl: 'home.html'
 })
 export class HomePage extends BasePage {
+
+  uid: string
+  type: string
 
   constructor(
     public navCtrl: NavController,
@@ -59,7 +61,7 @@ export class HomePage extends BasePage {
   }
 
   addMedicine() {
-    this.navCtrl.push(AddMedicinePage);
+      this.navCtrl.push(AddMedicinePage);
   }
 
   scanBarcode() {

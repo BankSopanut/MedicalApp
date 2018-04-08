@@ -93,7 +93,6 @@
     <plugin name="cordova-android-support-gradle-release" spec="^1.2.0">
         <variable name="ANDROID_SUPPORT_VERSION" value="26.+" />
     </plugin>
-    <engine name="android" spec="~7.0.0" />
     <plugin name="cordova-plugin-googlemaps" spec="^2.2.9">
         <variable name="API_KEY_FOR_ANDROID" value="AIzaSyDazoZlgH53B3GreW1OX0698sbhRymLNW0" />
         <variable name="API_KEY_FOR_IOS" value="AIzaSyCxIt8GrxfL1k0u66C56B2q1FtiRfuhpls" />
@@ -101,4 +100,5 @@
         <variable name="ANDROID_SUPPORT_V4_VERSION" value="24.1.0" />
     </plugin>
     <plugin name="cordova-plugin-local-notification" spec="^0.9.0-beta.2" />
+    <engine name="android" spec="~7.0.0" />
 </widget>

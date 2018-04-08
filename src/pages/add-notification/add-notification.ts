@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { NavController, NavParams, ViewController, DateTime } from 'ionic-angular';
+import { NavController, NavParams, ViewController } from 'ionic-angular';
 import { LocalNotifications } from '@ionic-native/local-notifications';
 import * as moment from 'moment';
 import { AngularFireAuth } from 'angularfire2/auth';
@@ -28,7 +28,7 @@ export class AddNotificationPage {
 
     this.notification.schedule({
       id: id,
-      text: 'ได้เวลาฉีดยาแล้ววว',
+      text: 'ได้เวลาทานยาแล้ววว',
       firstAt: new Date(t.year(), t.month(), t.date(), t.hour(), t.minute()),
       every: 'minute'
     });

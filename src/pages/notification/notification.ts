@@ -1,18 +1,10 @@
 import { Component } from '@angular/core';
-import { NavController, NavParams, ModalController, AlertController } from 'ionic-angular';
+import { NavController, NavParams, ModalController } from 'ionic-angular';
 import { LocalNotifications } from '@ionic-native/local-notifications';
 import { AddNotificationPage } from '../add-notification/add-notification';
 import { AngularFirestore } from 'angularfire2/firestore';
 import { AngularFireAuth } from 'angularfire2/auth';
 import * as moment from 'moment';
-import { not } from '@angular/compiler/src/output/output_ast';
-
-/**
- * Generated class for the NotificationPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
 
 @Component({
   selector: 'page-notification',

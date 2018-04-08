@@ -1,27 +1,21 @@
 <ion-header>
-  <ion-navbar no-border-bottom>
+  <ion-navbar no-border-bottom color="danger">
 
     <button ion-button menuToggle>
       <ion-icon name="menu"></ion-icon>
     </button>
     <ion-title>
-      Hospital
+      ร้านขายยาใกล้เคียง
     </ion-title>
-    <ion-buttons end>
-      <button ion-button icon-only (click)="search()">
-        <ion-icon name="search"></ion-icon>
-      </button>
-    </ion-buttons>
-    <!-- <ion-searchbar [(ngModel)]="autoComplete.input" (ionInput)="updateSearchResults()" placeholder="Search for a place"></ion-searchbar> -->
 
   </ion-navbar>
   <ion-toolbar no-border-top>
     <ion-segment [(ngModel)]="view">
       <ion-segment-button value="map">
-        <span ion-text>Map</span>
+        <span ion-text>แผนที่</span>
       </ion-segment-button>
       <ion-segment-button value="list">
-        <span ion-text>List</span>
+        <span ion-text>รายชื่อร้าน</span>
       </ion-segment-button>
     </ion-segment>
   </ion-toolbar>
@@ -40,10 +34,10 @@
 
   <div [ngSwitch]="view">
     <ion-list no-lines *ngSwitchCase="'list'">
-      <ion-item *ngFor="let hospital of hospitals">
-        <p class="font-light text-grey-darker">{{hospital.name}}</p>
-        <p class="font-light font-xs font-grey-lighter">{{hospital.distance}}</p>
-        <button ion-button clear item-end (click)="callNumber(hospital.phoneNumber)">
+      <ion-item *ngFor="let pharmacy of pharmacys">
+        <p class="font-light text-grey-darker">{{pharmacy.name}}</p>
+        <p class="font-light font-xs font-grey-lighter">{{pharmacy.distance}}</p>
+        <button ion-button clear item-end (click)="callNumber(pharmacy.phoneNumber)">
           <ion-icon name="call"></ion-icon>
         </button>
       </ion-item>
