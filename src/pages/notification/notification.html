@@ -11,7 +11,7 @@
     <ion-item *ngFor="let notification of notifications">
       {{format(notification.time)}}
       <button ion-button clear item-end (click)="delete(notification.id, notification.dataid)">
-        <ion-icon name="trash"></ion-icon>
+        ลบ
       </button>
     </ion-item>
   </ion-list>
