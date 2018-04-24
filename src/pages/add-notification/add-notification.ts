@@ -30,11 +30,10 @@ export class AddNotificationPage {
       id: id,
       text: 'ได้เวลาทานยาแล้ววว',
       firstAt: new Date(t.year(), t.month(), t.date(), t.hour(), t.minute()),
-      every: 'minute'
+      every: 'date'
     });
 
     console.log(id);
-    
 
     this.firebaseFirestore
       .collection('users')
@@ -51,8 +50,5 @@ export class AddNotificationPage {
   ionViewDidLoad() {
     console.log('ionViewDidLoad AddNotificationPage');
   }
-
-
-
 
 }

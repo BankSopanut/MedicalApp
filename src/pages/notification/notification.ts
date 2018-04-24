@@ -66,22 +66,10 @@ export class NotificationPage {
         .doc(dataId)
         .delete()
 
-      alert(JSON.stringify(notis))
+      alert(JSON.stringify("ลบการแจ้งเตือนแล้ว"))
 
     } catch (error) {
       alert(JSON.stringify(error))
-    }
-  }
-
-  async clearAll() {
-    try {
-      await this.notification.cancelAll();
-      await this.notification.clearAll();
-
-      const notis = await this.notification.getAll()
-      alert(JSON.stringify(notis))
-    } catch (error) {
-      alert(error);
     }
   }
 }

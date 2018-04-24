@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { NavController, NavParams, ToastController, LoadingController } from 'ionic-angular';
 import { AngularFirestore } from 'angularfire2/firestore';
 import BasePage from '../base';
+import { DispensePage } from '../dispense/dispense';
 
 @Component({
   selector: 'page-additional',
@@ -51,6 +52,12 @@ export class AdditionalPage extends BasePage {
           this.hideLoading();
           this.showToast(error);
         })
+  }
+
+  dispense(medicineID) {
+    this.navCtrl.push(DispensePage, {
+      id: medicineID
+    });
   }
 
   back() {

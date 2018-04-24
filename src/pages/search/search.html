@@ -8,9 +8,7 @@
 
 <ion-content>
   <ion-searchbar (ionInput)="getItems($event)" (ionClear)="showAllItems()" [(ngModel)]="code"></ion-searchbar>
-  <button ion-button icon-left color="primary" block (click)="listening()">
-    <ion-icon name="mic"></ion-icon>ค้นหายาด้วยเสียง
-  </button>
+  <button ion-button color="primary" block (click)="listening()">ค้นหายาด้วยเสียง</button>
   <ion-list>
     <button ion-item *ngFor="let medicine of results" (click)="medData(medicine.id)">
       {{medicine.data.name}}

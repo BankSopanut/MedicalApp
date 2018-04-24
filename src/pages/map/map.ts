@@ -167,10 +167,10 @@ export class MapPage {
 
   showActionSheet(data) {
     let actionSheet = this.actionSheetCtrl.create({
-      title: 'Action',
+      title: 'ตัวเลือก',
       buttons: [
         {
-          text: 'โทรฉุกเฉิน',
+          text: 'โทรติดต่อ',
           role: 'destructive',
           icon: !this.platform.is('ios') ? 'call' : null,
           handler: () => {
